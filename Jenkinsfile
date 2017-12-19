@@ -1,4 +1,4 @@
-jettyUrl = 'http://localhost:8081/'
+jettyUrl = 'http://localhost:8085/'
 servers = library('tools').demo.Servers.new(this)
 
 stage('Dev') {
