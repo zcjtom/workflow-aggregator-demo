@@ -1,4 +1,4 @@
-jettyUrl = 'http://localhost:8085/'
+jettyUrl = 'http://10.31.4.11:8085/'
 servers = library('tools').demo.Servers.new(this)
 
 stage('Dev') {
@@ -46,7 +46,7 @@ def runTests(duration) {
     node {
         checkout scm
         servers.withDeployment {id ->
-            mvn "-o -f sometests test -Durl=${jettyUrl}${id}/ -Dduration=${duration}"
+            mvn "-f sometests test -Durl=${jettyUrl}${id}/ -Dduration=${duration}"
         }
         junit '**/target/surefire-reports/TEST-*.xml'
     }
